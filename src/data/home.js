@@ -4,6 +4,10 @@ export const left = [
     img: "friends",
   },
   {
+    text: "Messenger",
+    img: "messenger",
+  },
+  {
     text: "Groups",
     img: "groups",
     notification: "5 new",
@@ -12,10 +16,7 @@ export const left = [
     text: "Saved",
     img: "saved",
   },
-  {
-    text: "Messenger",
-    img: "messenger",
-  },
+
  
 ];
 export const stories = [
