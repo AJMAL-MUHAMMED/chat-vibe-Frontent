@@ -77,7 +77,6 @@ export default function Profile({ getAllPosts }) {
       });
     }
   };
-  console.log("----->", profile)
   return (
     <div className="profile">
       {visible &&

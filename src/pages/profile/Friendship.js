@@ -10,6 +10,8 @@ import {
     unfollow,
     unfriend,
 } from "../../functions/user";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 export default function Friendship({ friendshipp, profileid }) {
     const [friendship, setFriendship] = useState(friendshipp);
     useEffect(() => {
@@ -68,6 +70,31 @@ export default function Friendship({ friendshipp, profileid }) {
         });
         await deleteRequest(profileid, user.token);
     };
+
+    const navigate = useNavigate();
+
+    const handleChat = async () => {
+        try {
+            const {data} = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/chat`,
+                {
+                    senderId: user.id,
+                    receiverId: profileid
+                },
+                {
+                    headers: {
+                        Authorization: `Bearer ${user.token}`
+                    }
+                }
+            );
+
+            if (data === "ok") {
+                navigate(`/chat`)
+            }
+            console.log(data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
         <div className="friendship">
@@ -170,13 +197,13 @@ export default function Friendship({ friendshipp, profileid }) {
                         <span>Follow</span>
                     </button>
                 )}
-                <button className={friendship?.friends ? "blue_btn" : "gray_btn"}>
+                <button className={friendship?.friends ? "blue_btn" : "gray_btn"} onClick={handleChat}>
                     <img
                         src="../../../icons/message.png"
                         className={friendship?.friends && "invert"}
                         alt=""
                     />
-                    <span>Message</span>
+                    <span >Message</span>
                 </button>
             </div>
         </div>

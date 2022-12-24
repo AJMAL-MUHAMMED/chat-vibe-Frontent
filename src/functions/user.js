@@ -250,3 +250,20 @@ export const getFriendsPageInfos = async (token) => {
     return error.response.data.message;
   }
 };
+
+export const getUser = async (userId, token) => {
+  console.log("indddd", userId)
+  try {
+    const { data } = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/getUser/${userId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+
+    return data;
+
+  } catch (error) {
+    return (error.response.data.message)
+  }
+}

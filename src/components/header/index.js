@@ -70,40 +70,21 @@ export default function Header({ page, getAllPosts }) {
         <Link to="/friends" className="middle_icon hover1">
           {page === "friends" ? <FriendsActive /> : <Friends color={color} />}
         </Link>
-        <Link to="/" className="middle_icon hover1">
-          <Watch color={color} />
-          <div className="middle_notification">9+</div>
+        <Link to="/chat" className="middle_icon hover1">
+          <Messenger />
+          {/* <div className="middle_notification">9+</div> */}
         </Link>
-        <Link to="/" className="middle_icon hover1">
-          <Market color={color} />
-        </Link>
-        <Link to="/" className="middle_icon hover1 ">
-          <Gaming color={color} />
-        </Link>
+     
       </div>
       <div className="header_right">
         <Link to="/profile" className={`profile_link hover1 ${page === 'profile' ? "active_link" : ""}`}>
           <img src={user?.picture} alt="" />
           <span>{user?.first_name} {user?.last_name}</span>
         </Link>
-        {/* <div
-          className={`circle_icon hover1 ${showAllMenu && "active_header"}`}
-          ref={allmenu}
-        >
-          <div
-            onClick={() => {
-              setShowAllMenu((prev) => !prev);
-            }}
-          >
-            <div style={{ transform: "translateY(2px)" }}>
-              <Menu />
-            </div>
-          </div>
-
-          {showAllMenu && <AllMenu />}
-        </div> */}
         <div className="circle_icon hover1">
-          <Messenger />
+          <Link to='/chat'>
+            <Messenger />
+          </Link>
         </div>
         <div className="circle_icon hover1">
           <Notifications />

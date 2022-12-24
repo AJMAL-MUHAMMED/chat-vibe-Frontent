@@ -12,6 +12,7 @@ import { useEffect, useReducer, useState } from "react";
 import axios from "axios";
 import { postsReducer } from "./functions/reducers";
 import Friends from "./pages/friends";
+import Chat from "./pages/Chat/Chat";
 
 function App() {
   const { type } = useParams()
@@ -58,13 +59,9 @@ function App() {
           <Route path="/profile/:username" element={<Profile setVisible={setVisible} getAllPosts={getAllPosts} />} exact />
           <Route path="/friends" element={<Friends setVisible={setVisible} getAllPosts={getAllPosts} />} exact />
           <Route path="/friends/:type" element={<Friends setVisible={setVisible} getAllPosts={getAllPosts} />} exact />
-
-          <Route
-            path="/"
-            element={<Home setVisible={setVisible} posts={posts} loading={loading} getAllPosts={getAllPosts} />}
-            exact
-          />
+          <Route path="/" element={<Home setVisible={setVisible} posts={posts} loading={loading} getAllPosts={getAllPosts} />} exact />
           <Route path="/activate/:token" element={<Activate />} exact />
+          <Route path="/chat" element={<Chat />} exact />
         </Route>
         <Route element={<NotLoggedInRoutes />}>
           <Route path="/login" element={<Login />} exact />
