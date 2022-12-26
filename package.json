@@ -24,7 +24,6 @@
     "redux-devtools-extension": "^2.13.9",
     "socket.io-client": "^4.5.4",
     "timeago.js": "^4.0.2",
-    "use-mediaquery": "^1.0.1",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },
